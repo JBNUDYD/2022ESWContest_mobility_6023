@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { dbService } from "fbase";
 import styles from "./Carinfo.module.css"
+import Map from "components/Map"
 
 const Carinfo = () => {
   const location = useLocation()
@@ -14,8 +15,7 @@ const Carinfo = () => {
     dbService.collection("Car").doc(ID).get().then((doc) => {
       setCardata(doc.data())
     });
-  }, []);
-  console.log(cardata.IP)
+  });
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -29,7 +29,7 @@ const Carinfo = () => {
           <h1>실시간 영상</h1>
           <div className={styles.camera_a}>
             <ul className={styles.box}>
-              <li>
+              <li>              
               <iframe src={`http://${cardata.IP}:2000/stream`} width="350px" height="270px" name="iframe_1" title="camera"></iframe>
               </li>
               <li>
@@ -56,7 +56,10 @@ const Carinfo = () => {
       <div className={styles.map_weather}>
         <ul className={styles.mp_list}>
           <li className={styles.map_link}>
-            <iframe src="https://eei.jbnu.ac.kr/eei/index.do" width="600px" height="400px" name="iframe_4" title="map"></iframe>
+            <Map 
+              Lat = {cardata.Lat}
+              Lon = {cardata.Lon}
+            />
           </li>
           <li className={styles.weather_link}>
             <iframe src="https://eei.jbnu.ac.kr/eei/index.do" width="600px" height="400px" name="iframe_5" title="weather"></iframe>

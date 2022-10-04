@@ -122,13 +122,13 @@ h2{
 
 .broken{
   display: grid;
-  width: 80%;
-  height: 40%;
+  width: 700px;
+  height: 480px;
   background: url("../img/broken_re.png");
   background-size: cover;
   position: relative;
   margin-top: 40px;
-  margin-right: 90px;
+  margin-right: 150px;
   z-index: 0;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -193,13 +193,13 @@ h2{
 }
 .mp_list{
   display: flex;
-  margin-left: 60px;
+  margin-left: 130px;
   list-style: none;
 }
 
 .mp_list li{
   flex: 1;
-  margin-right: 60px;
+  margin-right: 150px;
 }
 
 h3{

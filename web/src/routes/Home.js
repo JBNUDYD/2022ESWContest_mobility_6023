@@ -30,13 +30,15 @@ const Home = ({userObj}) => {
               GO
             </button>
           </li>
-          <li>
+          <li>      
             <div className={styles.icon_img2} />
             <div className={styles.contents1_bold}>신고 접수 차량</div>
             <div className={styles.contents2}>신고 접수된 차량의 정보를 <br/> 확인할 수 있습니다</div>
-            <button className={styles.go}>
-              <Link to="/carlist">GO</Link>
-            </button>
+            <Link to="/carlist">
+              <button className={styles.go}>
+                GO
+              </button>
+            </Link>
           </li>
           <li>
             <div className={styles.icon_img3} />
