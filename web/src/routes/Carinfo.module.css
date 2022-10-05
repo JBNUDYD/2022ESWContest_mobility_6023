@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+*{
+  font-family: 'Noto Sans KR', sans-serif;
+  margin: 0;
+}
+
+.h1{
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-left: 400px;
+}
+.h2{
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 70px;
+  margin-left: 280px;
+}
+.container {
+  display: grid;
+  width: 100vw;
+  height: 120vh;
+  margin: 0;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: 56px auto 320px;
+  grid-template-areas:
+  'header header'
+  'camera car'
+  'map_weather map_weather'
+  ;
+}
+
+.header{
+  grid-area: header;
+  background-color: rgba(223, 21, 21, 0.908);
+}
+
+.nav{
+  margin-top: 14px;
+  margin-left: 65px;
+  list-style: none;
+  display: flex;
+}
+
+.nav li{
+  flex:1;
+  margin-right: 200px;
+}
+
+.nav button{
+  flex:1;
+  margin-right: 200px;
+}
+
+.car_information{
+  background-color: none;
+  width: 130px;
+  color: white;
+  font-size: larger;
+  font-weight: 600;
+}
+
+.HOME{
+  border: solid 1.55px black;
+  color: black;
+  background: rgba(255, 146, 21, 0.781);
+  width: 200px;
+  height: 30px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500 ;
+}
+
+.YES{
+  border: solid 1.55px black;
+  color: black;
+  background: rgba(21, 154, 255, 0.9);
+  width: 200px;
+  height: 30px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500 ;
+}
+
+.camera{
+  grid-area:camera;
+  position: relative;
+}
+
+.layer{
+  background-color: rgba(0,0,0,.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.camera_a .box{
+  display: flex;
+  margin-top: 20px;
+  margin-left: 30px;
+  width: 350px;
+  height: 270px;
+}
+
+.camera_a li {
+  flex: 1;
+  list-style: none;
+  margin-left: 30px;
+  margin-right: 30px;
+  background-color: rgba(255, 255, 255, 0.83);
+}
+
+.camera_b {
+  background: rgba(0,0,0,.3);
+  width: 720px;
+  height: 300px;
+  list-style: none;
+  text-align: center;
+  margin-top: 40px;
+  margin-left: 60px;
+  background-color: rgba(255, 255, 255, 0.83);
+}
+
+.car{
+  background-color: rgba(0,0,0,.7);
+}
+
+.broken{
+  display: grid;
+  width: 700px;
+  height: 480px;
+  background: url("../img/broken_re.png");
+  background-size: cover;
+  position: relative;
+  margin-top: 40px;
+  margin-right: 150px;
+  z-index: 0;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 
+  'part1 part2 part3'
+  'part4 part5 part6';
+}
+
+.part1 {
+  grid-area: part1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(30, 143, 255, 0.879);
+}
+
+.part2 {
+  grid-area: part2;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(255, 79, 79, 0.8);
+}
+.part3 {
+  grid-area: part3;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(255, 220, 79, 0.8);
+}
+.part4 {
+  grid-area: part4;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(255, 79, 79, 0.8);
+}
+.part5 {
+  grid-area: part5;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(42, 255, 138, 0.8);
+}
+.part6 {
+  grid-area: part6;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(255, 79, 79, 0.8);
+}
+
+.map_weather{
+  grid-area: map_weather;
+  background: rgba(0,0,0,.7);
+  height: 50vh;
+}
+.mp_list{
+  display: flex;
+  margin-left: 130px;
+  list-style: none;
+}
+
+.mp_list li{
+  flex: 1;
+  margin-right: 150px;
+}
+
+h3{
+  margin-top: 15px;
+  color: white;
+  text-align: center;
+  font-size: medium;
+  font-weight: 500;
+}
+
+.iframe_4, .iframe_5{
+  background-color: white;
+}
