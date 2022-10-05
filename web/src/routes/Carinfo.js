@@ -3,19 +3,92 @@ import { useLocation } from "react-router-dom";
 import { dbService } from "fbase";
 import styles from "./Carinfo.module.css"
 import Map from "components/Map"
+import "./Carinfo.css"
 
 const Carinfo = () => {
+  const [cardata, setCardata] = useState([]);
+  const [part1Color, setPart1Color] = useState("");
+  const [part2Color, setPart2Color] = useState("");
+  const [part3Color, setPart3Color] = useState("");
+  const [part4Color, setPart4Color] = useState("");
+  const [part5Color, setPart5Color] = useState("");
+  const [part6Color, setPart6Color] = useState("");
   const location = useLocation()
   const ID = location.pathname.substring(9)
   const onClick = (() =>{
     console.log("hi")
   })
-  const [cardata, setCardata] = useState([]);
   useEffect(()=> {
     dbService.collection("Car").doc(ID).get().then((doc) => {
       setCardata(doc.data())
     });
   });
+  useEffect(()=>{
+    if(cardata.우상파손여부 === 0){
+      setPart1Color("part1_green")
+    }
+    else if(cardata.우상파손여부 === 1){
+      setPart1Color("part1_yellow")
+    }
+    else if(cardata.우상파손여부 === 2){
+      setPart1Color("part1_red")
+    }
+  }, [cardata.우상파손여부])
+  useEffect(()=>{
+    if(cardata.우중파손여부 === 0){
+      setPart2Color("part2_green")
+    }
+    else if(cardata.우중파손여부 === 1){
+      setPart2Color("part2_yellow")
+    }
+    else if(cardata.우중파손여부 === 2){
+      setPart2Color("part2_red")
+    }
+  }, [cardata.우중파손여부])
+  useEffect(()=>{
+    if(cardata.우하파손여부 === 0){
+      setPart3Color("part3_green")
+    }
+    else if(cardata.우하파손여부 === 1){
+      setPart3Color("part3_yellow")
+    }
+    else if(cardata.우하파손여부 === 2){
+      setPart3Color("part3_red")
+    }
+  }, [cardata.우하파손여부])
+  useEffect(()=>{
+    if(cardata.좌상파손여부 === 0){
+      setPart4Color("part4_green")
+    }
+    else if(cardata.좌상파손여부 === 1){
+      setPart4Color("part4_yellow")
+    }
+    else if(cardata.좌상파손여부 === 2){
+      setPart4Color("part4_red")
+    }
+  }, [cardata.좌상파손여부])
+  useEffect(()=>{
+    if(cardata.좌중파손여부 === 0){
+      setPart5Color("part5_green")
+    }
+    else if(cardata.좌중파손여부 === 1){
+      setPart5Color("part5_yellow")
+    }
+    else if(cardata.좌중파손여부 === 2){
+      setPart5Color("part5_red")
+    }
+  }, [cardata.좌중파손여부])
+  useEffect(()=>{
+    if(cardata.좌하파손여부 === 0){
+      setPart6Color("part6_green")
+    }
+    else if(cardata.좌하파손여부 === 1){
+      setPart6Color("part6_yellow")
+    }
+    else if(cardata.좌하파손여부 === 2){
+      setPart6Color("part6_red")
+    }
+  }, [cardata.좌하파손여부])
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -45,12 +118,12 @@ const Carinfo = () => {
       <div className={styles.car}>
         <h2>차량 파손 부위</h2>
         <div className={styles.broken}>
-            <div className={styles.part1}></div>
-            <div className={styles.part2}></div>
-            <div className={styles.part3}></div>
-            <div className={styles.part4}></div>
-            <div className={styles.part5}></div>
-            <div className={styles.part6}></div>
+            <div className={part1Color}></div>
+            <div className={part2Color}></div>
+            <div className={part3Color}></div>
+            <div className={part4Color}></div>
+            <div className={part5Color}></div>
+            <div className={part6Color}></div>
           </div>
       </div>
       <div className={styles.map_weather}>

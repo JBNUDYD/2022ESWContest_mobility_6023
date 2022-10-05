@@ -17,7 +17,7 @@ const Map=({ Lat, Lon })=>{
   });
   marker.setMap(map);
 
-    }, [])
+    })
 
     return (
       <div>

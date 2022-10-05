@@ -145,6 +145,7 @@ h2{
   z-index: 1;
   background: rgba(30, 143, 255, 0.879);
 }
+
 .part2 {
   grid-area: part2;
   position: absolute;
