@@ -14,6 +14,8 @@ const Carinfo = () => {
   const [part4Color, setPart4Color] = useState("");
   const [part5Color, setPart5Color] = useState("");
   const [part6Color, setPart6Color] = useState("");
+  const [temp, setTemp] = useState();
+  const [weather, setWeather] = useState();
   const location = useLocation()
   const ID = location.pathname.substring(9)
   useEffect(()=> {
@@ -21,6 +23,18 @@ const Carinfo = () => {
       setCardata(doc.data())
     });
   });
+  const lat = cardata.Lat;
+  const lon = cardata.Lon;
+  useEffect(()=>{
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=06ce98a6a1c135b09dafcacab7106b0a&units=metric`)
+    .then(res => res.json())
+    .then(data => {
+      const temp = data.main.temp;
+      const weathers = data.weather[data.weather.length - 1];
+      setTemp(temp);
+      setWeather(weathers.main);
+    })
+  })
   useEffect(()=>{
     if(cardata.우상파손여부 === 0){
       setPart1Color("part1_green")
@@ -139,7 +153,10 @@ const Carinfo = () => {
             />
           </li>
           <li className={styles.weather_link}>
-            <iframe src="https://eei.jbnu.ac.kr/eei/index.do" width="600px" height="400px" name="iframe_5" title="weather"></iframe>
+            <div>
+              weather:{weather}
+              temp : {temp}
+            </div>
           </li>
         </ul>
       </div>
