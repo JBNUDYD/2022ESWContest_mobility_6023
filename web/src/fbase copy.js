@@ -5,14 +5,12 @@ import "firebase/compat/storage";
 import "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDypsCZdMIKkO_YcQtsqVKkrQdzaCeAk9U",
-  authDomain: "jbnudyd2022eswcontest.firebaseapp.com",
-  databaseURL: "https://jbnudyd2022eswcontest-default-rtdb.firebaseio.com",
-  projectId: "jbnudyd2022eswcontest",
-  storageBucket: "jbnudyd2022eswcontest.appspot.com",
-  messagingSenderId: "633134548871",
-  appId: "1:633134548871:web:8c3dcac8bc93acd094b522",
-  measurementId: "G-KTKC68EFJS"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGIN_ID,
+  appId: process.env.REACT_APP_APP_ID,
 };
 
 firebase.initializeApp(firebaseConfig);

@@ -148,60 +148,10 @@
   'part4 part5 part6';
 }
 
-.part1 {
-  grid-area: part1;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  background: rgba(30, 143, 255, 0.879);
-}
-
-.part2 {
-  grid-area: part2;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  background: rgba(255, 79, 79, 0.8);
-}
-.part3 {
-  grid-area: part3;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  background: rgba(255, 220, 79, 0.8);
-}
-.part4 {
-  grid-area: part4;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  background: rgba(255, 79, 79, 0.8);
-}
-.part5 {
-  grid-area: part5;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  background: rgba(42, 255, 138, 0.8);
-}
-.part6 {
-  grid-area: part6;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  background: rgba(255, 79, 79, 0.8);
-}
-
 .map_weather{
   grid-area: map_weather;
   background: rgba(0,0,0,.7);
-  height: 50vh;
+  height: 70vh;
 }
 .mp_list{
   display: flex;

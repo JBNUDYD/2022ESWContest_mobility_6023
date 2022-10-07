@@ -3,8 +3,11 @@ import { useLocation } from "react-router-dom";
 import { dbService } from "fbase";
 import styles from "./Carinfo.module.css"
 import Map from "components/Map"
+import Weather from "components/Weather"
 import "./Carinfo.css"
 import { Link } from "react-router-dom"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCloud, faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 const Carinfo = () => {
   const [cardata, setCardata] = useState([]);
@@ -34,7 +37,7 @@ const Carinfo = () => {
       setTemp(temp);
       setWeather(weathers.main);
     })
-  })
+  },[ lat, lon])
   useEffect(()=>{
     if(cardata.우상파손여부 === 0){
       setPart1Color("part1_green")
@@ -149,14 +152,14 @@ const Carinfo = () => {
             <Map 
               Lat = {cardata.Lat}
               Lon = {cardata.Lon}
-              style={{width:"600px", height:"400px"}}
+              style={{width:"600px", height:"600px"}}
             />
           </li>
-          <li className={styles.weather_link}>
-            <div>
-              weather:{weather}
-              temp : {temp}
-            </div>
+          <li>
+            <Weather
+              temp = {temp}
+              weather = {weather}
+            />
           </li>
         </ul>
       </div>
