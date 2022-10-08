@@ -7,6 +7,7 @@ import { Link } from "react-router-dom"
 const Memberlist = ({userObj}) => {
   const [memberlist, setMemberlist] = useState([]);
   const [userName, setUserName] = useState("");
+  const [user, setUser] = useState("");
   useEffect(() => {
     dbService.collection("User").doc(userObj.uid).collection("대원").onSnapshot((snapshot) => {
       const memberlistArray = snapshot.docs.map((doc) => ({
@@ -19,6 +20,11 @@ const Memberlist = ({userObj}) => {
   dbService.collection("User").doc(userObj.uid).get().then((result)=>{
     setUserName(result.data().name)
   })
+  useEffect(()=> {
+    dbService.collection("User").doc(userObj.uid).get().then((doc) => {
+      setUser(doc.data())
+    });
+  });
   return(
     <div>
       <div className={styles.container}>
@@ -33,6 +39,8 @@ const Memberlist = ({userObj}) => {
         <div className={styles.main}>
           <div className={styles.box}>
             <ul>
+            {user.센터여부 ? (
+                <>
               {memberlist.map((member) => (
                 <Member
                   member_name = {member.이름}
@@ -41,6 +49,12 @@ const Memberlist = ({userObj}) => {
                   member_able = {member.출동가능여부}
                 />
               ))}
+                </>
+            ) : (
+                <li>
+                  권한이 없습니다.
+                </li>
+            )}
             </ul>
           </div>
         </div>

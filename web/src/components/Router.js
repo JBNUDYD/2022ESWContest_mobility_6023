@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 import Auth from "routes/Auth";
 import Home from "routes/Home";
 import Carlist from "routes/Carlist"
@@ -15,7 +15,7 @@ const AppRouter = ({ isLoggedIn, userObj }) => {
         {isLoggedIn ? (
           <>
             <Route exact path="/">
-              <Home userObj={userObj} />
+              <Home isLoggedIn={isLoggedIn} userObj={userObj} />
             </Route>
             <Route exact path="/carlist">
               <Carlist userObj={userObj} />
@@ -32,12 +32,14 @@ const AppRouter = ({ isLoggedIn, userObj }) => {
             <Route path="/receipt/:id">
               <Receiptlist userObj={userObj} />
             </Route>
+            <Redirect from="*" to="/" />
           </>
         ) : (
           <>
             <Route exact path="/">
               <Auth />
             </Route>
+            <Redirect from="*" to="/" />
           </>
         )}
       </Switch>

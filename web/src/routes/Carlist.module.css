@@ -8,7 +8,7 @@
 .h1 {
   font-size: 42px;
   color: rgba(255, 255, 255, 0.942);
-  margin-top: 70px;
+  margin-top: 45px;
   font-weight: bolder;
   position: relative;
   z-index: 4;
@@ -32,6 +32,12 @@
   background:rgb(237, 32, 32);
 }
 
+.nav{
+  margin-top: 14px;
+  margin-left: 65px;
+  list-style: none;
+  display: flex;
+}
 
 .main{
   grid-area: main;
@@ -155,4 +161,19 @@
 
   font-weight: 600;
 
+}
+
+.HOME{
+  position: relative;
+  border: solid 1.55px black;
+  color: black;
+  background: rgba(255, 146, 21, 0.781);
+  width: 200px;
+  height: 30px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500 ;
+  margin-left: 5px;
+  z-index: 10;
 }

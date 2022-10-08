@@ -1,19 +1,25 @@
 import React, { useState } from "react";
 import styles from "./Home.module.css"
-import { dbService } from "fbase";
-import { Link } from "react-router-dom";
+import { authService, dbService } from "fbase";
+import { Link, useHistory } from "react-router-dom";
 
-const Home = ({userObj}) => {
+const Home = ({isLoggedIn, userObj}) => {
   const [userName, setUserName] = useState("");
   dbService.collection("User").doc(userObj.uid).get().then((result)=>{
     setUserName(result.data().name)
   })
-
+  const onLogOutClick = () => {
+    authService.signOut();
+    window.location.reload();
+  }
   return(
     <div>
       <div className="wrap">
         <div className={styles.intro_bg}>
           <div className={styles.header}>
+            <button className={styles.LOGOUT} onClick={onLogOutClick}>
+              LogOut
+            </button>
             <div className={styles.name}>
               안녕하세요 ! {userName}님
             </div>
