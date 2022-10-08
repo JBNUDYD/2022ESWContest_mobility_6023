@@ -6,8 +6,6 @@ import Map from "components/Map"
 import Weather from "components/Weather"
 import "./Carinfo.css"
 import { Link } from "react-router-dom"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCloud, faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 const Carinfo = () => {
   const [cardata, setCardata] = useState([]);
