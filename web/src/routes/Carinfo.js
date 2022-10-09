@@ -121,15 +121,15 @@ const Carinfo = () => {
           <div className={styles.camera_a}>
             <ul className={styles.box}>
               <li>              
-              <iframe src={`http://${cardata.IP}:2000/stream`} width="350px" height="270px" name="iframe_1" title="camera"></iframe>
+              <iframe src={`http://${cardata.IP2}:8080/stream`} width="350px" height="270px" name="iframe_1" title="camera"></iframe>
               </li>
               <li>
-              <iframe src={`http://${cardata.IP}:3000/stream`} width="350px" height="260px" name="iframe_2" title="camera"></iframe>
+              <iframe src={`http://${cardata.IP3}:8080/stream`} width="350px" height="260px" name="iframe_2" title="camera"></iframe>
             </li>
             </ul>
           </div>
           <div className={styles.camera_b}>
-            <iframe src={`http://${cardata.IP}:1000/stream`} width="760px" height="300px" name="iframe_3" title="camera"></iframe>
+            <iframe src={`http://${cardata.IP1}:8080/stream`} width="760px" height="300px" name="iframe_3" title="camera"></iframe>
           </div>
         </div>
       </div>
