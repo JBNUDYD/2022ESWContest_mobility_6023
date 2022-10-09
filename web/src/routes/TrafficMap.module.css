@@ -1,0 +1,54 @@
+.h1 {
+  font-size: 42px;
+  color: black;
+  font-weight: bolder;
+  position: relative;
+  z-index: 4;
+}
+
+.HOME{
+  border: solid 1.55px black;
+  color: black;
+  background: rgba(255, 146, 21, 0.781);
+  width: 200px;
+  height: 30px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500 ;
+  position: relative;
+  margin-right: auto;
+}
+
+.nav{
+  margin-top: 14px;
+  margin-left: 65px;
+  list-style: none;
+  display: flex;
+}
+
+.container {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  grid-template-rows: 56px auto;
+  grid-template-areas:
+  'header'
+  'main';
+  text-align: center;
+}
+
+.header{
+  grid-area: header;
+  background:rgb(237, 32, 32);
+}
+
+.main{
+  grid-area: main;
+  background: url("../img/intro.png") rgba(0,0,0,.7) no-repeat center;
+  background-size: cover 50%;
+  background-color: transparent;
+  justify-content: center;
+  align-items: center;
+}
