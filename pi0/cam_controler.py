@@ -23,7 +23,7 @@ class CamControler():
       self.cam3 = self.camClose(self.cam3_IP)
 
     self.result = [self.cam1, self.cam2, self.cam3]
-    self.printResult()
+    self.printResult(self.result)
     return self.result
 
   def open(self, num):
@@ -39,7 +39,7 @@ class CamControler():
       self.cam3 = self.camOpen(self.cam3_IP)
 
     self.result = [self.cam1, self.cam2, self.cam3]
-    self.printResult()
+    self.printResult(self.result)
     return self.result
 
   def camClose(self, IPAddress):
