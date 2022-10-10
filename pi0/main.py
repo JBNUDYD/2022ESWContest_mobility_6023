@@ -2,8 +2,8 @@ import cam_controler
 from gps import *
 import time
 import serial
-import firebase_admin
 import sys
+import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 from multiprocessing import Process
@@ -95,18 +95,22 @@ cred = credentials.Certificate("./serviceAccountKey.json")
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 doc_ref = db.collection(u'Car').document(u'7CxUbBGJwfWJfQCsNFK3')
+document = doc_ref.get()
+document_dict = document.to_dict()
 
 com = serial.Serial(port="/dev/ttyACM0", baudrate=9600)
 button=[0,0,0,0,0,0]
 
 gpsd = gps(mode=WATCH_ENABLE|WATCH_NEWSTYLE)
 
-cam1_IP = '192.168.0.7'
-cam2_IP = '192.168.0.9'
-cam3_IP = '192.168.0.10'
+cam1_IP = document_dict["IP1"]
+cam2_IP = document_dict["IP2"]
+cam3_IP = document_dict["IP3"]
+print(cam1_IP, cam2_IP, cam3_IP)
 
 CamControler = cam_controler.CamControler(cam1_IP, cam2_IP, cam3_IP,)
 result = CamControler.close(0)
+
 p1 = Process(target=getAndSendPositionToFirebase)
 p1.start()
 p2 = Process(target=accidentOpenCamera)
