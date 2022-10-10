@@ -18,7 +18,6 @@ def readArduinoData():
         button = [data_list[0], data_list[1], data_list[2], data_list[3], data_list[4], data_list[5]]
       except:
         button = [0,0,0,0,0,0]
-    print("ard")
     if(button != [0,0,0,0,0,0]):
       doc_ref.set({
         u'사고여부': True
@@ -65,9 +64,11 @@ def accidentOpenCamera():
   while True:
     doc = doc_ref.get()
     doc_dict = doc.to_dict()
-    print("cam")
     if(doc_dict['사고여부'] == True):
       openCamera()
+      doc_ref.set({
+          u'시간': time.strftime('%X',time.localtime(x))
+          }, merge=True)
       break
 
 def getPositionData(gps):
@@ -75,7 +76,6 @@ def getPositionData(gps):
   if nx['class'] == 'TPV':
     lat = getattr(nx,'lat', "Unknown")
     lon = getattr(nx,'lon', "Unknown")
-    print("pos")
     if(lat != "Unknown" and lon != "Unknown" ):
       doc_ref.set({
         u'Lat': f"{lat}",
