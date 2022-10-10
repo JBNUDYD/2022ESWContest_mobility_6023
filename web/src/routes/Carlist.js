@@ -48,7 +48,6 @@ const Carlist = ({userObj}) => {
                       car_num = {car.차량번호}
                       car_type = {car.차종}
                       car_time = {car.시간}
-                      car_progress = {car.출동여부}
                     />
                   ))}
                 </>

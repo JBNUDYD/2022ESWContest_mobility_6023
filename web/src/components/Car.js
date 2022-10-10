@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./Car.module.css"
 import { Link } from "react-router-dom";
 
-const Car = ({ car_id, car_lat, car_lon, car_res, car_accident, car_num, car_type, car_time, car_progress }) => {
+const Car = ({ car_id, car_lat, car_lon, car_res, car_accident, car_num, car_type, car_time }) => {
   const [location, setLocation] = useState([]);
   useEffect(() => {
     let geocoder = new kakao.maps.services.Geocoder();

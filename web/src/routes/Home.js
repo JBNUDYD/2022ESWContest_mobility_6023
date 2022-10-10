@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Home.module.css"
 import { authService, dbService } from "fbase";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Home = ({isLoggedIn, userObj}) => {
   const [userName, setUserName] = useState("");
