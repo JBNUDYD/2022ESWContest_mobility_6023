@@ -11,12 +11,12 @@ UV4L_OFF = "sudo pkill uv4l"
 IP1 = ""
 
 def internetCheck():
-	try:
-		so = socket.setdefaulttimeout((3))
-		so = socket.socket(socket.AF_INET, socket.SOCK_STREAM).connect(("google.com", 443))
-		return True
-	except:
-		return False
+  try:
+    so = socket.setdefaulttimeout((3))
+    so = socket.socket(socket.AF_INET, socket.SOCK_STREAM).connect(("google.com", 443))
+    return True
+  except:
+    return False
 
 while True:
   internet = internetCheck()
