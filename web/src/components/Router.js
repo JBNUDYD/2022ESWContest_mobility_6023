@@ -27,12 +27,11 @@ const AppRouter = ({ isLoggedIn, userObj }) => {
               <Memberlist userObj={userObj} />
             </Route>
             <Route path="/carinfo/:id">
-              <Carinfo />
+              <Carinfo userObj={userObj} />
             </Route>
             <Route path="/receipt/:id">
               <Receiptlist userObj={userObj} />
             </Route>
-            <Redirect from="*" to="/" />
           </>
         ) : (
           <>

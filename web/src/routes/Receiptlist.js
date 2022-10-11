@@ -46,6 +46,7 @@ const Receiptlist = ({userObj}) => {
                   member_position = {member.직책}
                   member_able = {member.출동가능여부}
                   userObj = {userObj}
+                  userUID = {member.대원UID}
                 />
               ))}
             </ul>

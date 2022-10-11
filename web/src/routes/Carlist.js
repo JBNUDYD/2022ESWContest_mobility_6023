@@ -14,13 +14,17 @@ const Carlist = ({userObj}) => {
         ...doc.data(),
       }));
       setCarlist(carlistArray);
+      console.log("hi")
     });
   }, []);
   useEffect(()=> {
     dbService.collection("User").doc(userObj.uid).get().then((doc) => {
       setUser(doc.data())
+      console.log("no")
     });
-  });
+  },[userObj.uid]);
+  console.log(userObj.uid)
+  console.log(user.권한)
   return(
     <div>
       <div className={styles.container}>
@@ -52,9 +56,19 @@ const Carlist = ({userObj}) => {
                   ))}
                 </>
             ) : (
-                <li>
-                  권한이 없습니다.
-                </li>
+                <>
+                {user.권한 == " " ? (
+                  <li>
+                    권한이 없습니다.
+                  </li>
+                ) : (
+                  <Link to={`/carinfo/${user.권한}`}>
+                    <li>
+                      차량 정보 확인
+                    </li>
+                  </Link>
+                  )}
+                </>
             )}
             </ul>
           </div>

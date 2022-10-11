@@ -7,7 +7,7 @@ import Weather from "components/Weather"
 import "./Carinfo.css"
 import { Link } from "react-router-dom"
 
-const Carinfo = () => {
+const Carinfo = ({ userObj }) => {
   const [cardata, setCardata] = useState([]);
   const [part1Color, setPart1Color] = useState("");
   const [part2Color, setPart2Color] = useState("");
@@ -17,15 +17,41 @@ const Carinfo = () => {
   const [part6Color, setPart6Color] = useState("");
   const [temp, setTemp] = useState();
   const [weather, setWeather] = useState();
+  const [user, setUser] = useState([]);
   const location = useLocation()
   const ID = location.pathname.substring(9)
+  const lat = cardata.Lat;
+  const lon = cardata.Lon;
+  const onClick = () =>{
+    dbService.doc(`Car/${ID}`).update({
+      사고여부: false,
+      출동여부: false
+    })
+    dbService.doc(`User/${userObj.uid}/`).update({
+      사고여부: false,
+      출동여부: false,
+      출동가능여부: true,
+      Lat : 0,
+      Lon : 0,
+      차종 : "",
+      권한 : " ",
+      시간 : "",
+    })
+    dbService.doc(`User/${user.센터UID}/대원/${user.name}/`).update({
+      출동가능여부: true,
+    })
+    alert("구조가 완료되었습니다.")
+  }
+  useEffect(()=> {
+    dbService.collection("User").doc(userObj.uid).get().then((doc) => {
+      setUser(doc.data())
+    });
+  });
   useEffect(()=> {
     dbService.collection("Car").doc(ID).get().then((doc) => {
       setCardata(doc.data())
     });
   },);
-  const lat = cardata.Lat;
-  const lon = cardata.Lon;
   useEffect(()=>{
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=06ce98a6a1c135b09dafcacab7106b0a&units=metric`)
     .then(res => res.json())
@@ -107,9 +133,16 @@ const Carinfo = () => {
       <div className={styles.header}>
         <ul className={styles.nav}>
           <li className={styles.car_information}>{cardata.차량번호} / {cardata.차종}</li>
-          <Link to ={`/receipt/${ID}`}>
-            <button className={styles.YES}>접수</button>
-          </Link>
+          {user.센터여부 ?(
+            <Link to ={`/receipt/${ID}`}>
+              <button className={styles.YES}>접수</button>
+            </Link>
+          ) : (
+            <Link to="/">
+              <button className={styles.YES} onClick={onClick}>완료</button>
+            </Link>
+          )
+        }
           <Link to ="/">
             <button className={styles.HOME}>Home</button>
           </Link>
