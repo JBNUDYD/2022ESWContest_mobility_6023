@@ -23,7 +23,7 @@ const Carinfo = () => {
     dbService.collection("Car").doc(ID).get().then((doc) => {
       setCardata(doc.data())
     });
-  });
+  },);
   const lat = cardata.Lat;
   const lon = cardata.Lon;
   useEffect(()=>{
@@ -35,7 +35,7 @@ const Carinfo = () => {
       setTemp(temp);
       setWeather(weathers.main);
     })
-  },[ lat, lon])
+  },[lat, lon])
   useEffect(()=>{
     if(cardata.우상파손여부 === 0){
       setPart1Color("part1_green")
@@ -121,15 +121,15 @@ const Carinfo = () => {
           <div className={styles.camera_a}>
             <ul className={styles.box}>
               <li>              
-              <iframe src={`http://${cardata.IP2}:8080/stream`} width="350px" height="270px" name="iframe_1" title="camera"></iframe>
+              <iframe src={`https://firebasestorage.googleapis.com/v0/b/jbnudyd2022eswcontest.appspot.com/o/${ID}%2F2.jpg?alt=media&token=${cardata.uuid}`} width="330px" height="250px" name="iframe_1" title="camera"></iframe>
               </li>
               <li>
-              <iframe src={`http://${cardata.IP3}:8080/stream`} width="350px" height="260px" name="iframe_2" title="camera"></iframe>
+              <iframe src={`https://firebasestorage.googleapis.com/v0/b/jbnudyd2022eswcontest.appspot.com/o/${ID}%2F3.jpg?alt=media&token=${cardata.uuid}`} width="330px" height="250px" name="iframe_2" title="camera"></iframe>
             </li>
             </ul>
           </div>
           <div className={styles.camera_b}>
-            <iframe src={`http://${cardata.IP1}:8080/stream`} width="760px" height="300px" name="iframe_3" title="camera"></iframe>
+            <iframe src={`https://firebasestorage.googleapis.com/v0/b/jbnudyd2022eswcontest.appspot.com/o/${ID}%2F1.jpg?alt=media&token=${cardata.uuid}`} width="750px" height="290px" name="iframe_3" title="camera"></iframe>
           </div>
         </div>
       </div>
