@@ -29,7 +29,7 @@ while True:
     sock.close()
     break
 
-cred = credentials.Certificate("/home/pi1/pi1/serviceAccountKey.json")
+cred = credentials.Certificate("/home/pi3/pi3/serviceAccountKey.json")
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 doc_ref = db.collection(u'Car').document(u'7CxUbBGJwfWJfQCsNFK3')
