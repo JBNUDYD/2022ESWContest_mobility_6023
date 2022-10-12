@@ -175,3 +175,165 @@ h3{
 .iframe_4, .iframe_5{
   background-color: white;
 }
+
+.part1_green {
+  grid-area: part1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(42, 255, 138, 0.8);
+}
+
+.part1_yellow {
+  grid-area: part1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(255, 220, 79, 0.8);
+}
+
+.part1_red {
+  grid-area: part1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(255, 79, 79, 0.8);
+}
+
+.part2_green {
+  grid-area: part2;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(42, 255, 138, 0.8);
+}
+
+.part2_yellow {
+  grid-area: part2;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(255, 220, 79, 0.8);
+}
+
+.part2_red {
+  grid-area: part2;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(255, 79, 79, 0.8);
+}
+
+.part3_green {
+  grid-area: part3;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(42, 255, 138, 0.8);
+}
+
+.part3_yellow {
+  grid-area: part3;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(255, 220, 79, 0.8);
+}
+
+.part3_red {
+  grid-area: part3;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(255, 79, 79, 0.8);
+}
+
+.part4_green {
+  grid-area: part4;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(42, 255, 138, 0.8);
+}
+
+.part4_yellow {
+  grid-area: part4;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(255, 220, 79, 0.8);
+}
+
+.part4_red {
+  grid-area: part4;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(255, 79, 79, 0.8);
+}
+
+.part5_green {
+  grid-area: part5;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(42, 255, 138, 0.8);
+}
+
+.part5_yellow {
+  grid-area: part5;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(255, 220, 79, 0.8);
+}
+
+.part5_red {
+  grid-area: part5;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(255, 79, 79, 0.8);
+}
+
+.part6_green {
+  grid-area: part6;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(42, 255, 138, 0.8);
+}
+
+.part6_yellow {
+  grid-area: part6;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(255, 220, 79, 0.8);
+}
+
+.part6_red {
+  grid-area: part6;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(255, 79, 79, 0.8);
+}

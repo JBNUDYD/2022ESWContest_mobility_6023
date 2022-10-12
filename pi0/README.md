@@ -2,56 +2,41 @@
 
 ---
 
-Raspberry Pi 0번에 대한 코드설명 입니다.
+Raspberry Pi0에 들어가는 파일들 입니다.
 
 ---
 
-### Setting
+### 환경
+- serial
+- firebase_admin
+- multiprocessing
+- gps
+- python 3.9.12
 
-#### GPS모듈
-```bash
-$ sudo apt-get update && sudo apt-get -y install gpsd gpsd-clients
-$ sudo systemctl start gpsd.socket
-$ sudo systemctl restart gpsd.socket
-$ sudo systemctl status gpsd.socket # 모듈상태 확인
-$ cpgs -s # 데이터 수신여부 확인
-```
+---
 
-#### Firebase
-```bash
-$ pip install firebase_admin
-$ pip3 install firebase_admin
-```
+### 파일
+- cam_controler.py
+  - 카메라를 끄고 키기 쉽게 하기 위해 만든 파일입니다.
+  - `open(num)`으로 UV4L서비스를 실행하고, `close(num)`으로 UV4L 서비스를 종료합니다.
+  - 소켓통신으로 통신합니다.
+  - 결과로 숫자 3개를 리스트 형식으로 반환합니다. 1일경우 인터넷접속오류 2일경우 메세지전송오류 3일경우 전송성공 입니다.
 
+- main.py
+  - `multiprocessing`을 통해 3개의 함수를 동시실행 합니다.
+  - 파이어베이스에 연결하여 데이터를 수정가능하게 합니다.
+  - `getAndSendPositionToFirebase`
+    - 위치정보 수집 및 전송
+  - `accidentOpenCamera`
+    - 사고발생 확인 후 UV4L 서비스 실행 명령을 전송
+    - `cam_controler.py` 사용
+  - `readArduinoData`
+    - 아두이노의 데이터를 읽어오고 이를 토대로 파이어베이스에 데이터 전송
 
-### camControler.py
+- serviceAccountKey.json
+  - 파이어베이스에 접속하기 위한 Key값 저장
 
-  - 다른 raspberry pi 보드의 카메라를 끄고 키게 할 수 있는 파일
+---
+### 기타
 
-  - `close(num)`에서 동작은 다음과 같다.
-    - num=0 이면 모든카메라 꺼짐
-    - num=1 이면 1번카메라 꺼짐
-    - num=2 이면 2번카메라 꺼짐
-    - num=3 이면 3번카메라 꺼짐
-    - 후에 결과를 출력하고 반환 한다.
-
-  - `open(num)`에서 동작은 다음과 같다.
-    - num=0 이면 모든카메라 켜짐
-    - num=1 이면 1번카메라 켜짐
-    - num=2 이면 2번카메라 켜짐
-    - num=3 이면 3번카메라 켜짐
-    - 후에 결과를 출력하고 반환 한다.
-
-  - `camClose(IPAddress)`에서 동작은 다음과 같다.
-    - 해당 IP에 연결하여 소켓통신을 시작한다.
-    - 이때, 연결에 실패하면 1, `'close'`전송을 실패하면 2, 성공하면 3을 반환 한다.
-
-  - `camOpen(IPAddress)`에서 동작은 다음과 같다.
-    - 해당 IP에 연결하여 소켓통신을 시작한다.
-    - 이때, 연결에 실패하면 1, `'open'`전송을 실패하면 2, 성공하면 3을 반환 한다.
-
-  - `printResult(result)`에서는 어떠한 결과가 나왔는지 출력해준다.
-
-### main.py
-
-  - raspberry pi 가동 시 돌아가는 파일
+- `/etc/rc.local`의 마지막줄인 `exit 0` 전에 `python /home/pi0/pi0/main.py &` 추가

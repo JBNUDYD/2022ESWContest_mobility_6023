@@ -2,7 +2,6 @@ import cam_controler
 from gps import *
 import time
 import serial
-import sys
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
